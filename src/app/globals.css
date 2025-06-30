@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Holtwood';
+  src: url('/fonts/HoltwoodOneSC-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('/fonts/Paperlogy-1Thin.ttf') format('truetype');
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('/fonts/Paperlogy-2ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('/fonts/Paperlogy-3Light.ttf') format('truetype');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('/fonts/Paperlogy-4Regular.ttf') format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('/fonts/Paperlogy-5Medium.ttf') format('truetype');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('/fonts/Paperlogy-6SemiBold.ttf') format('truetype');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('/fonts/Paperlogy-7Bold.ttf') format('truetype');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('/fonts/Paperlogy-8ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('/fonts/Paperlogy-9Black.ttf') format('truetype');
+  font-weight: 900;
+}
+
+body {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 400; /* Regular */
+}
+
+.font-holtwood { font-family: 'Holtwood', sans-serif; }
+.font-paper1 { font-family: 'Paperlogy', sans-serif; font-weight: 100; }
+.font-paper2 { font-family: 'Paperlogy', sans-serif; font-weight: 200; }
+.font-paper3 { font-family: 'Paperlogy', sans-serif; font-weight: 300; }
+.font-paper4 { font-family: 'Paperlogy', sans-serif; font-weight: 400; }
+.font-paper5 { font-family: 'Paperlogy', sans-serif; font-weight: 500; }
+.font-paper6 { font-family: 'Paperlogy', sans-serif; font-weight: 600; }
+.font-paper7 { font-family: 'Paperlogy', sans-serif; font-weight: 700; }
+.font-paper8 { font-family: 'Paperlogy', sans-serif; font-weight: 800; }
+.font-paper9 { font-family: 'Paperlogy', sans-serif; font-weight: 900; }
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin 20s linear infinite;
+}
