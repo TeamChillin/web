@@ -1,5 +1,6 @@
 import { AnimatedDonut } from '@/components/animated-donut';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Home() {
   const hotdogImageStyle = {
@@ -47,13 +48,7 @@ export default function Home() {
           </h1>
           <div
             className="text-right flex top-20 right-20 font-holtwood"
-            /*
-              text-right: 텍스트 오른쪽 정렬
-              absolute: 절대 위치 사용
-              top-20: 위에서 5rem (80px)
-              right-20: 오른쪽에서 5rem (80px)
-              font-holtwood: Holtwood One SC 폰트 적용
-            */
+
           >
             <div className='flex flex-col text-left justify-left ml-3' >
             <p className="font-bold text-lg text-[30px] leading-[30px]" > SO FREASH</p>
@@ -66,52 +61,27 @@ export default function Home() {
         </header>
 
         <main
-          className="w-full max-w-5xl px-4"
-          /*
-            w-full: 너비 100%
-            max-w-5xl: 최대 너비 64rem (1024px)
-            px-4: 좌우 패딩 1rem (16px)
-          */
-        >
+          className="w-full max-w-5xl px-4">
           {/* App Promotion Section */}
           <section
-            className="bg-gray-100 rounded-3xl p-12 flex items-center flex-1 justify-center"
-            /*
-              bg-gray-100: 배경색 연한 회색
-              rounded-3xl: 모서리 둥글게 (1.5rem)
-              p-12: 모든 방향 패딩 3rem (48px)
-              my-8: 위아래 마진 2rem (32px)
-              flex: 플렉스박스 레이아웃
-              items-center: 아이템 세로축 중앙 정렬
-            */
-          >
+            className="bg-gray-100 rounded-3xl p-12 flex items-center flex-1 justify-center">
             <div
-              className="flex-1 flex flex-col items-start space-y-6"
-              /*
-                flex-1: 남은 공간 모두 차지
-                flex, flex-col: 아이템 세로 정렬
-                items-start: 아이템 가로축 시작점 정렬
-                space-y-6: 자식 요소간 세로 간격 1.5rem (24px)
-              */
-            >
-              <div className="w-48 h-16 bg-[#d9d9d9] rounded-lg flex flex-row items-center justify-start shadow-[5px_5px_10px_#c7c7c7,-5px_-5px_10px_#ffffff] active:shadow-[inset_5px_5px_10px_#c7c7c7,inset_-5px_-5px_10px_#ffffff] transition-all duration-150">
-                  <Image src="/images/apple.png" className='ml-4' alt="app store" width={40} height={40} />
-                <p className="ml-2 font-paper7">App store</p>
-                </div>
-              <div className="w-48 h-16 bg-[#d9d9d9] rounded-lg flex flex-row items-center justify-start shadow-[5px_5px_10px_#c7c7c7,-5px_-5px_10px_#ffffff] active:shadow-[inset_5px_5px_10px_#c7c7c7,inset_-5px_-5px_10px_#ffffff] transition-all duration-150">
-                  <Image src="/images/android.png" className='ml-4' alt="play store" width={40} height={40} />
-                <p className="ml-2 font-paper7">Google Play</p>
-              </div>
+              className="flex-1 flex flex-col items-start space-y-6">
+              <Link href="https://apps.apple.com/kr/app/here-%EC%9E%A5%EC%86%8C-%EA%B8%B0%EB%B0%98-%EC%9D%B5%EB%AA%85-%EC%BB%A4%EB%AE%A4%EB%8B%88%ED%8B%B0/id6746250884" target="_blank" rel="noopener noreferrer">
+                <div className="w-48 h-16 bg-[#d9d9d9] rounded-lg flex flex-row items-center justify-start shadow-[5px_5px_10px_#c7c7c7,-5px_-5px_10px_#ffffff] active:shadow-[inset_5px_5px_10px_#c7c7c7,inset_-5px_-5px_10px_#ffffff] transition-all duration-150 cursor-pointer hover:opacity-80">
+                    <Image src="/images/apple.png" className='ml-4' alt="app store" width={40} height={40} />
+                  <p className="ml-2 font-paper7">App store</p>
+                  </div>
+              </Link>
+              <Link href="https://play.google.com/store/apps/details?id=com.hotdog.hereClient" target="_blank" rel="noopener noreferrer">
+                <div className="w-48 h-16 bg-[#d9d9d9] rounded-lg flex flex-row items-center justify-start shadow-[5px_5px_10px_#c7c7c7,-5px_-5px_10px_#ffffff] active:shadow-[inset_5px_5px_10px_#c7c7c7,inset_-5px_-5px_10px_#ffffff] transition-all duration-150 cursor-pointer hover:opacity-80">
+                    <Image src="/images/android.png" className='ml-4' alt="play store" width={40} height={40} />
+                  <p className="ml-2 font-paper7">Google Play</p>
+                  </div>
+                </Link>
             </div>
             <div
-              className="flex-1 flex justify-center space-x-4"
-              /*
-                flex-1: 남은 공간 모두 차지
-                flex: 플렉스박스 레이아웃
-                justify-center: 아이템 가로축 중앙 정렬
-                space-x-4: 자식 요소간 가로 간격 1rem (16px)
-              */
-            >
+              className="flex-1 flex justify-center space-x-4">
               <div className="w-30 h-60 ">
                 <Image src="/images/1.png" alt="Phone 1" width={130} height={130} />
               </div>
@@ -132,16 +102,7 @@ export default function Home() {
 
           {/* Community Section */}
           <section
-            className="flex-row flex justify-end gap-2 my-8 items-center"
-            /*
-              flex-row: 아이템을 가로로 정렬
-              flex: 플렉스박스 레이아웃
-              justify-end: 아이템을 오른쪽 끝으로 정렬
-              gap-2: 아이템 간 간격 0.5rem (8px)
-              my-8: 위아래 마진 2rem (32px)
-              items-center: 아이템을 세로축 중앙에 정렬
-            */
-          >
+            className="flex-row flex justify-end gap-2 my-8 items-center">
              <Image src="/images/1-1.png" alt="section1" width={300} height={300} />
              <Image src="/images/1-2.png" alt="section2" width={300} height={300} />
           </section>
@@ -150,32 +111,16 @@ export default function Home() {
         {/* Contact Section */}
         <footer
           className="w-full max-w-5xl px-4 my-8 relative"
-          /*
-            w-full, max-w-5xl, px-4, my-8: 이전 main 태그와 동일
-            relative: 자식 요소의 absolute 위치 기준점
-          */
         >
           {/* 배경 블럭 (투명) */}
           <div
             className="bg-gray-100 rounded-3xl p-12 opacity-30 absolute inset-0"
-            /*
-              bg-gray-100: 배경색 연한 회색
-              rounded-3xl: 모서리 둥글게 (1.5rem)
-              p-12: 모든 방향 패딩 3rem (48px)
-              opacity-30: 30% 투명도
-              absolute inset-0: 부모 요소 전체 크기로 절대 위치
-            */
           >
           </div>
           
           {/* 콘텐츠 블럭 (불투명) */}
           <div
             className="relative z-10 p-12 flex justify-between items-end"
-            /*
-              relative z-10: 배경 블럭 위에 표시
-              p-12: 모든 방향 패딩 3rem (48px) - 배경과 동일한 패딩
-              flex justify-between items-end: 좌우 정렬, 하단 정렬
-            */
           >
             <div>
               <p className="font-paper4">대표 : 임수</p>
