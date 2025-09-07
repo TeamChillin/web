@@ -4,7 +4,7 @@ import Image from 'next/image';
 export default function Home() {
   return (
     <div
-      className="flex flex-col items-center min-h-screen bg-white text-black overflow-x-hidden"
+      className="flex flex-col items-center min-h-screen bg-white text-black overflow-x-hidden w-full"
       /*
         flex: 플렉스박스 레이아웃 사용
         flex-col: 아이템을 세로로 정렬
@@ -13,19 +13,10 @@ export default function Home() {
         bg-white: 배경색을 흰색으로 지정
         text-black: 글자색을 검은색으로 지정
         overflow-x-hidden: 가로 스크롤 숨김으로 가로사이즈 고정
+        w-full: 전체 너비 사용
       */
     >
       <AnimatedDonut />
-
-      {/* 화면 사이즈 표시 */}
-      <div className="fixed top-4 right-4 bg-black text-white px-3 py-2 rounded-lg text-sm font-mono z-50">
-        <div className="block sm:hidden">기본 (&lt;640px)</div>
-        <div className="hidden sm:block md:hidden">SM (640px+)</div>
-        <div className="hidden md:block lg:hidden">MD (768px+)</div>
-        <div className="hidden lg:block xl:hidden">LG (1024px+)</div>
-        <div className="hidden xl:block 2xl:hidden">XL (1280px+)</div>
-        <div className="hidden 2xl:block">2XL (1536px+)</div>
-      </div>
 
       <div className="relative z-[10] w-full max-w-screen-2xl flex flex-col items-center">
         {/* Header Section */}
@@ -110,56 +101,27 @@ export default function Home() {
               </a>
             </div>
             <div
-              className="flex flex-col md:flex-row justify-center gap-2 md:gap-4"
+              className="flex flex-wrap justify-center gap-2 lg:gap-3 xl:gap-4 2xl:gap-6"
               /*
-                flex flex-col md:flex-row: md 미만에서는 세로, md 이상에서는 가로 정렬
+                flex flex-wrap: 플렉스박스 래핑으로 자동 줄바꿈
                 justify-center: 아이템 가로축 중앙 정렬
-                gap-2 md:gap-4: 반응형 간격
+                gap-2 lg:gap-3 xl:gap-4 2xl:gap-6: 반응형 간격
               */
             >
-              {/* 모바일/태블릿: 세로 배치 */}
-              <div className="flex flex-col md:hidden gap-2">
-                {/* 첫 번째 줄: 1, 2번 */}
-                <div className="flex justify-center gap-2">
-                  <div className="w-35 h-70">
-                    <Image src="/images/1.png" alt="Phone 1" width={130} height={130} className="w-full h-full object-contain" />
-                  </div>
-                  <div className="w-35 h-70">
-                    <Image src="/images/2.png" alt="Phone 2" width={130} height={130} className="w-full h-full object-contain" />
-                  </div>
-                </div>
-                
-                {/* 두 번째 줄: 3, 4, 5번 */}
-                <div className="flex justify-center gap-2">
-                  <div className="w-35 h-70">
-                    <Image src="/images/3.png" alt="Phone 3" width={130} height={130} className="w-full h-full object-contain" />
-                  </div>
-                  <div className="w-35 h-70">
-                    <Image src="/images/4.png" alt="Phone 4" width={130} height={130} className="w-full h-full object-contain" />
-                  </div>
-                  <div className="w-35 h-70"> 
-                    <Image src="/images/5.png" alt="Phone 5" width={130} height={130} className="w-full h-full object-contain" />
-                  </div>
-                </div>
+              <div className="w-35 h-70 lg:w-28 lg:h-56 xl:w-32 xl:h-64 2xl:w-36 2xl:h-72">
+                <Image src="/images/1.png" alt="Phone 1" width={130} height={130} className="w-full h-full object-contain" />
               </div>
-
-              {/* 데스크톱 이상: 가로 배치 */}
-              <div className="hidden md:flex justify-center gap-2 lg:gap-3 xl:gap-4 2xl:gap-6 flex-wrap">
-                <div className="w-35 h-70 lg:w-28 lg:h-56 xl:w-32 xl:h-64 2xl:w-36 2xl:h-72">
-                  <Image src="/images/1.png" alt="Phone 1" width={130} height={130} className="w-full h-full object-contain" />
-                </div>
-                <div className="w-35 h-70 lg:w-28 lg:h-56 xl:w-32 xl:h-64 2xl:w-36 2xl:h-72">
-                  <Image src="/images/2.png" alt="Phone 2" width={130} height={130} className="w-full h-full object-contain" />
-                </div>
-                <div className="w-35 h-70 lg:w-28 lg:h-56 xl:w-32 xl:h-64 2xl:w-36 2xl:h-72">
-                  <Image src="/images/3.png" alt="Phone 3" width={130} height={130} className="w-full h-full object-contain" />
-                </div>
-                <div className="w-35 h-70 lg:w-28 lg:h-56 xl:w-32 xl:h-64 2xl:w-36 2xl:h-72">
-                  <Image src="/images/4.png" alt="Phone 4" width={130} height={130} className="w-full h-full object-contain" />
-                </div>
-                <div className="w-35 h-70 lg:w-28 lg:h-56 xl:w-32 xl:h-64 2xl:w-36 2xl:h-72"> 
-                  <Image src="/images/5.png" alt="Phone 5" width={130} height={130} className="w-full h-full object-contain" />
-                </div>
+              <div className="w-35 h-70 lg:w-28 lg:h-56 xl:w-32 xl:h-64 2xl:w-36 2xl:h-72">
+                <Image src="/images/2.png" alt="Phone 2" width={130} height={130} className="w-full h-full object-contain" />
+              </div>
+              <div className="w-35 h-70 lg:w-28 lg:h-56 xl:w-32 xl:h-64 2xl:w-36 2xl:h-72">
+                <Image src="/images/3.png" alt="Phone 3" width={130} height={130} className="w-full h-full object-contain" />
+              </div>
+              <div className="w-35 h-70 lg:w-28 lg:h-56 xl:w-32 xl:h-64 2xl:w-36 2xl:h-72">
+                <Image src="/images/4.png" alt="Phone 4" width={130} height={130} className="w-full h-full object-contain" />
+              </div>
+              <div className="w-35 h-70 lg:w-28 lg:h-56 xl:w-32 xl:h-64 2xl:w-36 2xl:h-72"> 
+                <Image src="/images/5.png" alt="Phone 5" width={130} height={130} className="w-full h-full object-contain" />
               </div>
             </div>
           </section>
