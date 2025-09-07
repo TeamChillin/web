@@ -6,7 +6,6 @@ import {
   useMotionValue,
   useSpring,
 } from 'framer-motion';
-import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 
 export function AnimatedDonut() {
