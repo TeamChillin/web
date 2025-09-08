@@ -72,7 +72,7 @@ export default function Home() {
         >
           {/* App Promotion Section */}
           <section
-            className="drop-shadow-lg bg-gray-100 rounded-3xl p-6 sm:p-8 md:p-10 lg:p-12 xl:p-5 2xl:p-16 flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-12 xl:gap-12 2xl:gap-20 max-w-full overflow-hidden"
+            className="drop-shadow-lg bg-gray-100 rounded-3xl p-5 sm:p-5 md:p-8 lg:p-8 xl:p-8 2xl:p-8 flex flex-col lg:flex-row items-center justify-center gap-5 lg:gap-5 xl:gap-5 2xl:gap-5 max-w-full overflow-hidden"
             /*
               bg-gray-100: 배경색 연한 회색
               rounded-3xl: 모서리 둥글게 (1.5rem)
@@ -84,7 +84,7 @@ export default function Home() {
             */
           >
             <div
-              className="flex flex-col items-center lg:items-start space-y-4"
+              className="flex flex-col items-center lg:items-start space-y-4 gap-2"
               /*
                 flex flex-col: 아이템 세로 정렬
                 items-center lg:items-start: 모바일에서는 중앙, 데스크톱에서는 시작점 정렬
@@ -101,26 +101,26 @@ export default function Home() {
               </a>
             </div>
             <div
-              className="flex flex-wrap justify-center gap-2 lg:gap-3 xl:gap-4 2xl:gap-6"
+              className="flex flex-wrap justify-center gap-1"
               /*
                 flex flex-wrap: 플렉스박스 래핑으로 자동 줄바꿈
                 justify-center: 아이템 가로축 중앙 정렬
                 gap-2 lg:gap-3 xl:gap-4 2xl:gap-6: 반응형 간격
               */
             >
-              <div className="w-35 h-70 lg:w-28 lg:h-56 xl:w-32 xl:h-64 2xl:w-36 2xl:h-72">
+              <div className="w-35 h-70 ">
                 <Image src="/images/1.png" alt="Phone 1" width={130} height={130} className="w-full h-full object-contain" />
               </div>
-              <div className="w-35 h-70 lg:w-28 lg:h-56 xl:w-32 xl:h-64 2xl:w-36 2xl:h-72">
+              <div className="w-35 h-70 ">
                 <Image src="/images/2.png" alt="Phone 2" width={130} height={130} className="w-full h-full object-contain" />
               </div>
-              <div className="w-35 h-70 lg:w-28 lg:h-56 xl:w-32 xl:h-64 2xl:w-36 2xl:h-72">
+              <div className="w-35 h-70 ">
                 <Image src="/images/3.png" alt="Phone 3" width={130} height={130} className="w-full h-full object-contain" />
               </div>
-              <div className="w-35 h-70 lg:w-28 lg:h-56 xl:w-32 xl:h-64 2xl:w-36 2xl:h-72">
+              <div className="w-35 h-70 ">
                 <Image src="/images/4.png" alt="Phone 4" width={130} height={130} className="w-full h-full object-contain" />
               </div>
-              <div className="w-35 h-70 lg:w-28 lg:h-56 xl:w-32 xl:h-64 2xl:w-36 2xl:h-72"> 
+              <div className="w-35 h-70 "> 
                 <Image src="/images/5.png" alt="Phone 5" width={130} height={130} className="w-full h-full object-contain" />
               </div>
             </div>
@@ -171,7 +171,7 @@ export default function Home() {
           
           {/* 콘텐츠 블럭 (불투명) */}
           <div
-            className="relative z-10 p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 lg:gap-0"
+            className="relative z-10 p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6"
             /*
               relative z-10: 배경 블럭 위에 표시
               p-6 sm:p-8 md:p-10 lg:p-12: 반응형 패딩
