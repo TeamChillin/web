@@ -91,7 +91,7 @@ export default function Home() {
                 space-y-4 lg:space-y-6 xl:space-y-8 2xl:space-y-10: 반응형 세로 간격
               */
             >
-              <a href="https://apps.apple.com/kr/app/veryveryhotdog/id6731091413" target="_blank" rel="noopener noreferrer" className="w-32 sm:w-36 md:w-40 lg:w-44 xl:w-48 h-10 sm:h-12 md:h-14 lg:h-15 xl:h-16 bg-[#d9d9d9] rounded-lg flex flex-row items-center justify-start shadow-[5px_5px_10px_#c7c7c7,-5px_-5px_10px_#ffffff] active:shadow-[inset_5px_5px_10px_#c7c7c7,inset_-5px_-5px_10px_#ffffff] transition-all duration-150">
+              <a href="https://apps.apple.com/kr/app/here-%ED%9E%88%EC%96%B4-%EC%9E%A5%EC%86%8C%EA%B8%B0%EB%B0%98-%EC%9D%B5%EB%AA%85-%EC%BB%A4%EB%AE%A4%EB%8B%88%ED%8B%B0/id6746250884" target="_blank" rel="noopener noreferrer" className="w-32 sm:w-36 md:w-40 lg:w-44 xl:w-48 h-10 sm:h-12 md:h-14 lg:h-15 xl:h-16 bg-[#d9d9d9] rounded-lg flex flex-row items-center justify-start shadow-[5px_5px_10px_#c7c7c7,-5px_-5px_10px_#ffffff] active:shadow-[inset_5px_5px_10px_#c7c7c7,inset_-5px_-5px_10px_#ffffff] transition-all duration-150">
                   <Image src="/images/apple.png" className='ml-2 sm:ml-3 md:ml-3 lg:ml-4' alt="app store" width={24} height={24} />
                 <p className="ml-2 font-paper7 text-xs sm:text-sm md:text-sm lg:text-base">App store</p>
                 </a>
