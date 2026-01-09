@@ -1,4 +1,3 @@
-import { AnimatedDonut } from '@/components/animated-donut';
 import Image from 'next/image';
 
 export default function Home() {
@@ -16,8 +15,6 @@ export default function Home() {
         w-full: 전체 너비 사용
       */
     >
-      <AnimatedDonut />
-
       <div className="relative z-[10] w-full max-w-screen-2xl flex flex-col items-center">
         {/* Header Section */}
         <header
@@ -70,6 +67,28 @@ export default function Home() {
             px-4: 좌우 패딩 1rem (16px)
           */
         >
+
+
+          {/* Community Section */}
+          <section
+            className="w-full flex flex-row justify-center lg:justify-end gap-4 lg:gap-2 my-8 items-center"
+            /*
+              flex flex-col lg:flex-row: 모바일에서는 세로, 데스크톱에서는 가로 정렬
+              justify-center lg:justify-end: 모바일에서는 중앙, 데스크톱에서는 오른쪽 정렬
+              gap-4 lg:gap-2: 반응형 간격
+              my-8: 위아래 마진 2rem (32px)
+              items-center: 아이템을 세로축 중앙에 정렬
+            */
+          >
+             <div className="drop-shadow-lg w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 2xl:w-96 2xl:h-96">
+               <Image src="/images/here/1-1.png" alt="section1" width={300} height={300} className="w-full h-full object-contain" />
+             </div>
+             <div className="drop-shadow-lg w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 2xl:w-96 2xl:h-96">
+               <Image src="/images/here/1-2.png" alt="section2" width={300} height={300} className="w-full h-full object-contain" />
+             </div>
+          </section>
+      
+          
           {/* App Promotion Section */}
           <section
             className="drop-shadow-lg bg-gray-100 rounded-3xl p-5 sm:p-5 md:p-8 lg:p-8 xl:p-8 2xl:p-8 flex flex-col lg:flex-row items-center justify-center gap-5 lg:gap-5 xl:gap-5 2xl:gap-5 max-w-full overflow-hidden"
@@ -109,19 +128,19 @@ export default function Home() {
               */
             >
               <div className="w-35 h-70 ">
-                <Image src="/images/1.png" alt="Phone 1" width={130} height={130} className="w-full h-full object-contain" />
+                <Image src="/images/here/1.png" alt="Phone 1" width={130} height={130} className="w-full h-full object-contain" />
               </div>
               <div className="w-35 h-70 ">
-                <Image src="/images/2.png" alt="Phone 2" width={130} height={130} className="w-full h-full object-contain" />
+                <Image src="/images/here/2.png" alt="Phone 2" width={130} height={130} className="w-full h-full object-contain" />
               </div>
               <div className="w-35 h-70 ">
-                <Image src="/images/3.png" alt="Phone 3" width={130} height={130} className="w-full h-full object-contain" />
+                <Image src="/images/here/3.png" alt="Phone 3" width={130} height={130} className="w-full h-full object-contain" />
               </div>
               <div className="w-35 h-70 ">
-                <Image src="/images/4.png" alt="Phone 4" width={130} height={130} className="w-full h-full object-contain" />
+                <Image src="/images/here/4.png" alt="Phone 4" width={130} height={130} className="w-full h-full object-contain" />
               </div>
               <div className="w-35 h-70 "> 
-                <Image src="/images/5.png" alt="Phone 5" width={130} height={130} className="w-full h-full object-contain" />
+                <Image src="/images/here/5.png" alt="Phone 5" width={130} height={130} className="w-full h-full object-contain" />
               </div>
             </div>
           </section>
@@ -129,7 +148,7 @@ export default function Home() {
 
           {/* Community Section */}
           <section
-            className="flex flex-row justify-center lg:justify-end gap-4 lg:gap-2 my-8 items-center"
+            className="w-full flex flex-row justify-center lg:justify-start gap-4 lg:gap-2 my-8 items-center"
             /*
               flex flex-col lg:flex-row: 모바일에서는 세로, 데스크톱에서는 가로 정렬
               justify-center lg:justify-end: 모바일에서는 중앙, 데스크톱에서는 오른쪽 정렬
@@ -138,14 +157,70 @@ export default function Home() {
               items-center: 아이템을 세로축 중앙에 정렬
             */
           >
-             <div className="drop-shadow-lg w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 2xl:w-96 2xl:h-96">
-               <Image src="/images/1-1.png" alt="section1" width={300} height={300} className="w-full h-full object-contain" />
+                <div className="drop-shadow-lg w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 2xl:w-96 2xl:h-96">
+               <Image src="/images/butakhae/1-4.png" alt="section2" width={300} height={300} className="w-full h-full object-contain" />
              </div>
              <div className="drop-shadow-lg w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 2xl:w-96 2xl:h-96">
-               <Image src="/images/1-2.png" alt="section2" width={300} height={300} className="w-full h-full object-contain" />
+               <Image src="/images/butakhae/1-3.png" alt="section2" width={300} height={300} className="w-full h-full object-contain" />
              </div>
+         
+    
+    
           </section>
-        </main>
+
+
+
+          <section
+            className="drop-shadow-lg bg-gray-100 rounded-3xl p-5 sm:p-5 md:p-8 lg:p-8 xl:p-8 2xl:p-8 flex flex-col lg:flex-row items-center justify-center gap-5 lg:gap-5 xl:gap-5 2xl:gap-5 max-w-full overflow-hidden"
+            /*
+              bg-gray-100: 배경색 연한 회색
+              rounded-3xl: 모서리 둥글게 (1.5rem)
+              p-6 sm:p-8 md:p-10 lg:p-12 xl:p-14 2xl:p-16: 반응형 패딩
+              flex flex-col lg:flex-row: 모바일에서는 세로, 데스크톱에서는 가로 정렬
+              items-center: 아이템 세로축 중앙 정렬
+              gap-6 lg:gap-12 xl:gap-16 2xl:gap-20: 반응형 간격
+              max-w-full overflow-hidden: 최대 너비 제한 및 넘침 방지
+            */
+          >
+            <div
+              className="flex flex-col items-center lg:items-start space-y-4 gap-2"
+              /*
+                flex flex-col: 아이템 세로 정렬
+                items-center lg:items-start: 모바일에서는 중앙, 데스크톱에서는 시작점 정렬
+                space-y-4 lg:space-y-6 xl:space-y-8 2xl:space-y-10: 반응형 세로 간격
+              */
+            >
+              <a href="https://apps.apple.com/kr/app/here-%ED%9E%88%EC%96%B4-%EC%9E%A5%EC%86%8C%EA%B8%B0%EB%B0%98-%EC%9D%B5%EB%AA%85-%EC%BB%A4%EB%AE%A4%EB%8B%88%ED%8B%B0/id6746250884" target="_blank" rel="noopener noreferrer" className="w-32 sm:w-36 md:w-40 lg:w-44 xl:w-48 h-10 sm:h-12 md:h-14 lg:h-15 xl:h-16 bg-[#d9d9d9] rounded-lg flex flex-row items-center justify-start shadow-[5px_5px_10px_#c7c7c7,-5px_-5px_10px_#ffffff] active:shadow-[inset_5px_5px_10px_#c7c7c7,inset_-5px_-5px_10px_#ffffff] transition-all duration-150">
+                  <Image src="/images/apple.png" className='ml-2 sm:ml-3 md:ml-3 lg:ml-4' alt="app store" width={24} height={24} />
+                <p className="ml-2 font-paper7 text-xs sm:text-sm md:text-sm lg:text-base">App store</p>
+                </a>
+              <a href="https://play.google.com/store/apps/details?id=com.hotdog.hereClient" target="_blank" rel="noopener noreferrer" className="w-32 sm:w-36 md:w-40 lg:w-44 xl:w-48 h-10 sm:h-12 md:h-14 lg:h-15 xl:h-16 bg-[#d9d9d9] rounded-lg flex flex-row items-center justify-start shadow-[5px_5px_10px_#c7c7c7,-5px_-5px_10px_#ffffff] active:shadow-[inset_5px_5px_10px_#c7c7c7,inset_-5px_-5px_10px_#ffffff] transition-all duration-150">
+                  <Image src="/images/android.png" className='ml-2 sm:ml-3 md:ml-3 lg:ml-4' alt="play store" width={24} height={24} />
+                <p className="ml-2 font-paper7 text-xs sm:text-sm md:text-sm lg:text-base">Google Play</p>
+              </a>
+            </div>
+            <div
+              className="flex flex-wrap justify-center gap-1"
+              /*
+                flex flex-wrap: 플렉스박스 래핑으로 자동 줄바꿈
+                justify-center: 아이템 가로축 중앙 정렬
+                gap-2 lg:gap-3 xl:gap-4 2xl:gap-6: 반응형 간격
+              */
+            >
+              <div className="w-35 h-70 ">
+                <Image src="/images/butakhae/1.png" alt="Phone 1" width={130} height={130} className="w-full h-full object-contain" />
+              </div>
+              <div className="w-35 h-70 ">
+                <Image src="/images/butakhae/2.png" alt="Phone 2" width={130} height={130} className="w-full h-full object-contain" />
+              </div>
+              <div className="w-35 h-70 ">
+                <Image src="/images/butakhae/3.png" alt="Phone 3" width={130} height={130} className="w-full h-full object-contain" />
+              </div>
+              </div>
+          </section>
+
+          </main>
+
 
         {/* Contact Section */}
         <footer
