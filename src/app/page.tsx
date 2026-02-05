@@ -194,7 +194,7 @@ export default function Home() {
                   <Image src="/images/apple.png" className='ml-2 sm:ml-3 md:ml-3 lg:ml-4' alt="app store" width={24} height={24} />
                 <p className="ml-2 font-paper7 text-xs sm:text-sm md:text-sm lg:text-base">App store</p>
                 </a>
-              <a href="https://play.google.com/store/apps/details?id=com.hotdog.hereClient" target="_blank" rel="noopener noreferrer" className="w-32 sm:w-36 md:w-40 lg:w-44 xl:w-48 h-10 sm:h-12 md:h-14 lg:h-15 xl:h-16 bg-[#d9d9d9] rounded-lg flex flex-row items-center justify-start shadow-[5px_5px_10px_#c7c7c7,-5px_-5px_10px_#ffffff] active:shadow-[inset_5px_5px_10px_#c7c7c7,inset_-5px_-5px_10px_#ffffff] transition-all duration-150">
+              <a href="https://play.google.com/store/apps/details?id=com.hotdog.butakhae" target="_blank" rel="noopener noreferrer" className="w-32 sm:w-36 md:w-40 lg:w-44 xl:w-48 h-10 sm:h-12 md:h-14 lg:h-15 xl:h-16 bg-[#d9d9d9] rounded-lg flex flex-row items-center justify-start shadow-[5px_5px_10px_#c7c7c7,-5px_-5px_10px_#ffffff] active:shadow-[inset_5px_5px_10px_#c7c7c7,inset_-5px_-5px_10px_#ffffff] transition-all duration-150">
                   <Image src="/images/android.png" className='ml-2 sm:ml-3 md:ml-3 lg:ml-4' alt="play store" width={24} height={24} />
                 <p className="ml-2 font-paper7 text-xs sm:text-sm md:text-sm lg:text-base">Google Play</p>
               </a>
