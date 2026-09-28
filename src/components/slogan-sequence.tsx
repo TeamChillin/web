@@ -51,7 +51,7 @@ export function SloganSequence() {
         <p className={LINE_CLASS}>SO FRESH</p>
         <p className={LINE_CLASS}>SO DANGEROUS</p>
         <p className={LINE_CLASS}>SO HIGH</p>
-        <p className="font-holtwood tracking-tight text-5xl sm:text-6xl text-brand">SO FXXXKING HOT</p>
+        <p className="font-holtwood tracking-tight text-5xl sm:text-6xl text-brand">SO<br />FXXXKING<br />HOT</p>
       </section>
     );
   }
