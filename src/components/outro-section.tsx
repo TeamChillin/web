@@ -25,13 +25,13 @@ export function OutroSection() {
 
       <div className="relative z-10 flex flex-col items-center gap-4 sm:gap-6 text-center">
         <motion.p
-          className="font-holtwood tracking-tight text-6xl sm:text-7xl lg:text-9xl text-brand"
+          className="font-holtwood tracking-tight text-6xl sm:text-7xl lg:text-[min(8rem,14vh)] leading-none text-brand"
           initial={prefersReducedMotion ? false : { opacity: 0, scale: 0.85 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.6, ease: 'backOut' }}
         >
-          SO FXXXKING HOT
+          SO<br />FXXXKING<br />HOT
         </motion.p>
         <motion.p
           className="font-paper5 text-base lg:text-xl"

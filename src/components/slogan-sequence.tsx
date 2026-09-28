@@ -12,7 +12,7 @@ import {
 import { useDonutOpacity } from '@/components/donut-opacity-context';
 import { useIsMobile } from '@/components/use-is-mobile';
 
-const LINE_CLASS = 'font-holtwood tracking-tight text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-none';
+const LINE_CLASS = 'font-holtwood tracking-tight text-4xl sm:text-5xl md:text-6xl lg:text-[min(4.5rem,8vh)] leading-none';
 
 /**
  * S2 슬로건 시퀀스 (핵심 연출) — 화면이 고정(pinned)된 채로 스크롤을 내리면
@@ -69,7 +69,7 @@ export function SloganSequence() {
           SO HIGH
         </motion.p>
         <motion.div
-          className="mt-2 lg:mt-4 flex flex-col lg:flex-row items-center justify-center gap-1 lg:gap-4 font-holtwood tracking-tight text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-none"
+          className="mt-2 lg:mt-4 flex flex-col items-center justify-center gap-1 lg:gap-2 font-holtwood tracking-tight text-5xl sm:text-6xl md:text-7xl lg:text-[min(6rem,11vh)] leading-none"
           style={{ ...climax, scale: climaxScale, color: climaxColor }}
         >
           <span>SO</span>
