@@ -4,16 +4,18 @@ import {
   motion,
   useAnimationFrame,
   useMotionValue,
+  useReducedMotion,
   useSpring,
 } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
+import { useDonutOpacity } from '@/components/donut-opacity-context';
 
 export function AnimatedDonut() {
   const [imageSize, setImageSize] = useState(600);
-  const [docSize, setDocSize] = useState({ width: 0, height: 0 });
   const boundsRef = useRef({ width: 0, height: 0 });
   const velocity = useRef({ x: 2, y: 2 });
   const isInitializedRef = useRef(false);
+  const prefersReducedMotion = useReducedMotion();
 
   // MotionValue는 리액트 리렌더링 없이 값을 업데이트할 수 있어 애니메이션에 최적화되어 있습니다.
   const x = useMotionValue(0);
@@ -22,6 +24,10 @@ export function AnimatedDonut() {
   // 물리 기반 스프링 효과를 추가합니다. (stiffness: 뻣뻣함, damping: 감쇠, restDelta: 멈춤 조건)
   const springX = useSpring(x, { stiffness: 100, damping: 20, restDelta: 0.001 });
   const springY = useSpring(y, { stiffness: 100, damping: 20, restDelta: 0.001 });
+
+  // S0: S2/S6 섹션이 공유 컨텍스트를 통해 도넛의 opacity를 제어(평상시 1, S2 0.12, S6 0).
+  const donutOpacity = useDonutOpacity();
+  const springOpacity = useSpring(donutOpacity, { stiffness: 120, damping: 24 });
 
   useEffect(() => {
     function handleResize() {
@@ -50,107 +56,37 @@ export function AnimatedDonut() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // imageSize가 변경될 때마다 "문서 전체" 기준 bounds 재계산
+  // imageSize가 변경될 때마다 "보이는 화면(viewport)" 기준 bounds 재계산
   useEffect(() => {
-    let rafId: number | null = null;
-
-    function getDocumentSize() {
-      const scrollingEl = document.scrollingElement ?? document.documentElement;
-      const body = document.body;
-
-      const width = Math.max(
-        scrollingEl.scrollWidth,
-        scrollingEl.clientWidth,
-        document.documentElement.scrollWidth,
-        document.documentElement.clientWidth,
-        body.scrollWidth,
-        body.clientWidth,
-        window.innerWidth,
-      );
-
-      const height = Math.max(
-        scrollingEl.scrollHeight,
-        scrollingEl.clientHeight,
-        document.documentElement.scrollHeight,
-        document.documentElement.clientHeight,
-        body.scrollHeight,
-        body.clientHeight,
-        window.innerHeight,
-      );
-
-      return { width, height };
-    }
-
-    function updatePageSize() {
-      const { width, height } = getDocumentSize();
-
+    function updateBounds() {
       const bounds = {
-        width: Math.max(0, width - imageSize), // 도넛 크기만큼 여백 확보
-        height: Math.max(0, height - imageSize), // 도넛 크기만큼 여백 확보
+        width: Math.max(0, window.innerWidth - imageSize), // 도넛 크기만큼 여백 확보
+        height: Math.max(0, window.innerHeight - imageSize),
       };
-
       boundsRef.current = bounds;
-      setDocSize({ width, height });
 
-      // 최초 1회만 랜덤 위치를 지정 (스크롤/DOM 변화로 위치가 계속 리셋되는 문제 방지)
-      if (!isInitializedRef.current && bounds.width > 0 && bounds.height > 0) {
+      // 최초 1회만 랜덤 위치를 지정
+      if (!isInitializedRef.current) {
         x.set(Math.random() * bounds.width);
         y.set(Math.random() * bounds.height);
         isInitializedRef.current = true;
+        return;
       }
 
-      // bounds가 줄어든 케이스에서 도넛이 밖으로 나가 "갇힌 것처럼" 보이는 문제 방지
-      if (isInitializedRef.current) {
-        if (x.get() > bounds.width) x.set(bounds.width);
-        if (y.get() > bounds.height) y.set(bounds.height);
-        if (x.get() < 0) x.set(0);
-        if (y.get() < 0) y.set(0);
-      }
-
-      // 디버깅용 (개발 환경에서만)
-      if (process.env.NODE_ENV === 'development') {
-        console.log('Document size:', { width, height });
-        console.log('Bounds:', bounds);
-        console.log('Viewport:', { width: window.innerWidth, height: window.innerHeight });
-      }
+      // 화면이 줄어들어 도넛이 밖에 걸린 경우 안으로 당겨온다
+      x.set(Math.min(Math.max(x.get(), 0), bounds.width));
+      y.set(Math.min(Math.max(y.get(), 0), bounds.height));
     }
 
-    // 초기 계산
-    updatePageSize();
-
-    // 페이지 로드 완료 후 재계산 (콘텐츠가 모두 로드된 후)
-    if (document.readyState === 'complete') {
-      setTimeout(updatePageSize, 100);
-    } else {
-      const onLoad = () => setTimeout(updatePageSize, 100);
-      window.addEventListener('load', onLoad, { once: true });
-    }
-
-    function scheduleUpdate() {
-      if (rafId !== null) return;
-      rafId = window.requestAnimationFrame(() => {
-        rafId = null;
-        updatePageSize();
-      });
-    }
-
-    window.addEventListener('resize', scheduleUpdate);
-
-    // 모든 요소의 크기 변화를 관찰
-    const ro = new ResizeObserver(scheduleUpdate);
-    ro.observe(document.documentElement);
-    ro.observe(document.body);
-
-    return () => {
-      window.removeEventListener('resize', scheduleUpdate);
-      if (rafId !== null) window.cancelAnimationFrame(rafId);
-      ro.disconnect();
-    };
-  }, [imageSize]);
+    updateBounds();
+    window.addEventListener('resize', updateBounds);
+    return () => window.removeEventListener('resize', updateBounds);
+  }, [imageSize, x, y]);
 
   useAnimationFrame(() => {
+    // prefers-reduced-motion: reduce 환경에서는 도넛을 정적 위치에 고정하고 튕김도 멈춘다.
+    if (prefersReducedMotion) return;
     if (!isInitializedRef.current) return;
-    if (boundsRef.current.width === 0 && boundsRef.current.height === 0) return;
 
     const currentX = x.get();
     const currentY = y.get();
@@ -183,28 +119,21 @@ export function AnimatedDonut() {
   });
 
   return (
-    // 문서 전체를 덮는 absolute 레이어: 도넛이 "document 좌표계"에서 돌아다니며,
-    // 스크롤하면 도넛이 같이 따라오지 않고 문서의 다른 위치에 남습니다.
-    <div
-      className="absolute left-0 top-0 pointer-events-none"
-      style={{
-        zIndex: 0,
-        width: docSize.width || '100vw',
-        height: docSize.height || '100vh',
-      }}
-    >
-      {/* motion.div가 스프링 값을 사용해 부드럽게 움직입니다. */}
+    // 화면(viewport)에 고정된 레이어: 스크롤과 상관없이 도넛이 항상 보이는 화면 안에서 돌아다닙니다.
+    <div className="fixed inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 0 }}>
+      {/* motion.div가 스프링 값을 사용해 부드럽게 움직입니다. opacity는 S0 규칙(S2=0.12, S6=0, 그 외=1)을 따르는 공유 스프링 값 */}
       <motion.div
         className="absolute z-[1]"
         style={{
           x: springX,
           y: springY,
+          opacity: springOpacity,
           width: `${imageSize}px`,
           height: `${imageSize}px`,
         }}
       >
-        <div 
-          className="w-full h-full animate-spin-slow"
+        <div
+          className={prefersReducedMotion ? 'w-full h-full' : 'w-full h-full animate-spin-slow'}
           style={{
             width: `${imageSize}px`,
             height: `${imageSize}px`,

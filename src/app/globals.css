@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 @import "tailwindcss";
+@config "../../tailwind.config.ts";
 
 @font-face {
   font-family: 'Holtwood';
