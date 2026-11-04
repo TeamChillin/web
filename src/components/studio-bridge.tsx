@@ -9,7 +9,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 const APPS = [
   { num: '01', name: 'HERE', targetId: 'app-here', icon: '/images/here/icon.png' },
   { num: '02', name: '부탁해', targetId: 'app-butakhae', icon: '/images/butakhae/icon.png' },
-  { num: '03', name: '혼술어때', targetId: 'app-honsul', icon: '/images/honsul/icon.png' },
+  { num: '03', name: '모두의식물', targetId: 'app-modooleaf', icon: '/images/modooleaf/logo-clear.png' },
 ];
 
 export function StudioBridge() {
@@ -41,7 +41,7 @@ export function StudioBridge() {
               alt={`${app.name} 아이콘`}
               width={96}
               height={96}
-              className="w-16 h-16 lg:w-24 lg:h-24 rounded-2xl"
+              className="w-16 h-16 lg:w-24 lg:h-24 rounded-2xl object-contain"
             />
             <span className="font-holtwood text-xl lg:text-2xl">{app.num}</span>
             <span className="font-paper7 text-sm lg:text-base">{app.name}</span>

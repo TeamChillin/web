@@ -3,7 +3,7 @@ import { SloganSequence } from '@/components/slogan-sequence';
 import { StudioBridge } from '@/components/studio-bridge';
 import { AppHereSection } from '@/components/app-here-section';
 import { AppButakhaeSection } from '@/components/app-butakhae-section';
-import { AppHonsulSection } from '@/components/app-honsul-section';
+import { AppModooleafSection } from '@/components/app-modooleaf-section';
 import { OutroSection } from '@/components/outro-section';
 
 export default function Home() {
@@ -37,10 +37,10 @@ export default function Home() {
         {/* S5 APP 02 — 부탁해 (마카다미아 깨기 크로스페이드) */}
         <AppButakhaeSection />
 
-        {/* S6 APP 03 — 혼술어때 (COMING SOON, 밤 전환) */}
-        <AppHonsulSection />
+        {/* S6 APP 03 — 모두의식물 (COMING SOON, 잎이 자라는 연출) */}
+        <AppModooleafSection />
 
-        {/* S7 아웃트로 — SO FXXXKING HOT 재등장, 밝은 무드 복귀 */}
+        {/* S7 아웃트로 — SO FXXXKING HOT 재등장 */}
         <OutroSection />
 
         {/* S8 Contact / 사업자 정보 / 약관 — 기존 구조·톤 그대로 유지 (오탈자만 수정) */}
